@@ -51,3 +51,4 @@ Route::get("/mahasiswa", [MahasiswaController::class, "index"]);
 Route::get("/mahasiswa/detail/{id}", [MahasiswaController::class, "detail"])->name('detailmhs');
 
 Route::get('/prodi/create', [ProdiController::class,'create']);
+Route::post('prodi/store',[ProdiController::class,'store']);

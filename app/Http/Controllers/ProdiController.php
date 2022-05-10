@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class ProdiController extends Controller
 {
 
-    function index(){
+    //function index(){
         /*$data = [
             'prodi' => ['Manajemen Informatika', 'Sistem Informasi', 'Informatika']
         ];
