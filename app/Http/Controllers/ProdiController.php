@@ -39,5 +39,8 @@ class ProdiController extends Controller
 public function store(Request $request)
 {
     //dump($request)
-    echo $request->nama;
+    //echo $request->nama;
+    $validateData = $request->validate(['nama'=> 'required|min:5|max:20',]);
+    dump($validateData);
+    echo $validateData['nama'];
 }
