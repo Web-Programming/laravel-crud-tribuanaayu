@@ -38,5 +38,6 @@ class ProdiController extends Controller
 }
 public function store(Request $request)
 {
-    dump($request)
+    //dump($request)
+    echo $request->nama;
 }
