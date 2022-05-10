@@ -20,15 +20,19 @@ class ProdiController extends Controller
     
         return view("prodi.index", compact('prodi', 'kampus'));*/
 
-        $kampus = "Universitas Multi Data Palembang";
-        $prodi = Prodi::all();
+       //$kampus = "Universitas Multi Data Palembang";
+       // $prodi = Prodi::all();
 
         /*$prodi = DB::select("SELECT prodi.*, fakultas.nama as namaf FROM prodi INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id");*/
         
-        return view("prodi.index", compact('kampus', 'prodi'));
-    }
+        //return view("prodi.index", compact('kampus', 'prodi'));
+//}
 
     function detail($id = null){
         echo $id;
     }
+}
+    public function create()
+{
+    return view ("prodi.create");
 }
