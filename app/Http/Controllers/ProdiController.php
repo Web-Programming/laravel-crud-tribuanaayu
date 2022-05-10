@@ -30,7 +30,7 @@ class ProdiController extends Controller
         ]);
        
         $prodi = new Prodi(); //buat object prodi
-        $prodi->nama = $validateData['nama']; //simpan nilai inout ($validateData['nama]) ke dalam property nama prodi ($prodi->nama)
+        $prodi->nama = $validateData['nama']; //simpan nilai input ($validateData['nama]) ke dalam property nama prodi ($prodi->nama)
         $prodi->institusi_id = 0;
         $prodi->fakultas_id = 1;
         $prodi->save(); //simpan ke dalam tabel prodis
