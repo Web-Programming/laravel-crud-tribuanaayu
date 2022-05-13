@@ -21,6 +21,7 @@
                         <tr>
                             <th>Nama</th>
                             <th>Fakultas</a>
+                            <th>Logo</th>
                             <th>Aksi</th>
                         </tr>
                     </thread>
@@ -29,6 +30,7 @@
                         <tr>
                             <td> {{ $item->nama }} </td>
                             <td> {{ $item->fakultas->nama }} </td>
+                            <td> <img src="{{ asset('storage/'.$item->foto) }}" width="100"> </td>
                             <td>
                                 <form action="{{ route('prodi.destroy', ['prodi' => $item->id]) }}" method="POST">
                                     <a href="{{ url('/prodi/'.$item->id) }}" class="btn btn-warning">Detail</a>

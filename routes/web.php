@@ -50,6 +50,7 @@ Route::get("/prodi/detail/{id?}", [ProdiController::class, "detail"]);
 Route::get("/mahasiswa", [MahasiswaController::class, "index"]);
 Route::get("/mahasiswa/detail/{id}", [MahasiswaController::class, "detail"])->name('detailmhs');
 
+
 Route::get("/prodi/create", [ProdiController::class, "create"])->name("prodi.create");
 Route::post('prodi/store', [ProdiController::class, "store"])->name("prodi.store");
 Route::get('/prodi', [ProdiController::class, 'index'])->name('prodi.index');
