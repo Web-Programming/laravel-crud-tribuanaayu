@@ -12,12 +12,16 @@
         <div class="row pt-4">
             <div class="col">
                 <h2>Form Prodi</h2>
-                <form action="{{ url('prodi/store') }}" method="post">
+                <form action="{{ url('prodi/store') }}" method="post" enctype="multipart/form-data"> 
                     @csrf   
                     <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" name="nama" id="nama" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="foto">Gambar/Logo</label>
+                        <input type="file" name="foto" class="form-control">
+                    </div>   
                     <button type="submit" class="btn btn-primary mt-2">Simpan</button>
                 </form>
             </div>
