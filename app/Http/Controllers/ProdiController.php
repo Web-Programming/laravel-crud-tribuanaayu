@@ -76,4 +76,5 @@ class ProdiController extends Controller
         $prodi->delete();
         return redirect()->route('prodi.index')->with("info", "Prodi $prodi->nama berhasil dihapus.");
     }
+
 }
