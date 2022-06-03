@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class ProdiController extends Controller
 {
+    function __construct(){
+        $this->middleware('auth');
+    }
 
     function index(){
-    
+        $this->authorize('viewAny', Prodi::class);
+
         $kampus = "Universitas Multi Data Palembang";
         $prodi = Prodi::all();
         return view('prodi.index')->with('prodi', $prodi);
@@ -21,11 +25,13 @@ class ProdiController extends Controller
     }
 
     function create(){
+        $this->authorize('create', Prodi::class);
         return view("prodi.create");
     }
 
     public function store(Request $request)
     {
+        $this->authorize('create', Prodi::class);
         $validateData = $request->validate([
             'nama' => 'required|min:5|max:20',
             'foto' => 'required|file|image|max:1000'
@@ -39,8 +45,8 @@ class ProdiController extends Controller
 
         $prodi = new Prodi(); //buat object prodi
         $prodi->nama = $validateData['nama']; //simpan nilai inout ($validateData['nama]) ke dalam property nama prodi ($prodi->nama)
-        $prodi->institusi_id = 0;
-        $prodi->fakultas_id = 1;
+        //$prodi->institusi_id = 0;
+        //$prodi->fakultas_id = 1;
         $prodi->foto= $nama_file;
         $prodi->save(); //simpan ke dalam tabel prodis
 
@@ -56,12 +62,14 @@ class ProdiController extends Controller
 
     public function edit(Prodi $prodi)
     {
+        $this->authorize("update", $prodi);
         return view('prodi.edit', ['prodi' => $prodi]);
     }
 
     public function update(Request $request, Prodi $prodi)
     {
      
+        $this->authorize("update", $prodi);
         $validateData = $request->validate([
             'nama' => 'required|min:5|max:20',
         ]);
@@ -73,8 +81,8 @@ class ProdiController extends Controller
 
     public function destroy(Prodi $prodi)
     {
+        $this->authorize("delete", $prodi);
         $prodi->delete();
         return redirect()->route('prodi.index')->with("info", "Prodi $prodi->nama berhasil dihapus.");
     }
-
 }
